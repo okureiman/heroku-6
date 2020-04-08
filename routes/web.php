@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'admin','middleware'=> 'auth'], function () {
     //ニュース新規登録画面
-    Route::get('news/create', 'Admin\NewsController@add');
+    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
     Route::post('news/create', 'Admin\NewsController@create');
     //ニュース登録済一覧
     Route::get('news', 'Admin\NewsController@index');
